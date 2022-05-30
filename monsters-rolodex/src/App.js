@@ -12,7 +12,8 @@ const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
-
+  console.log('rendered');
+  
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())
@@ -36,9 +37,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className='app-title'>Moooooonsters Rolodex &#128123;</h1>
-      <SearchBox className={'search-box'} onChangeHandler={onSearchChange} placeholder={'Search Monster'} />
+      <SearchBox 
+        className={'search-box'} 
+        onChangeHandler={onSearchChange} 
+        placeholder={'Search Monster'} 
+      />
       <CardList monsters={filteredMonsters} /> 
-    </div>)
+    </div>
+  );
 }
 
 
